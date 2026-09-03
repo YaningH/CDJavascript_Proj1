@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #FF257C;
+  color: black;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.scroll-page {
+  height: 300vh;
+}
+
+.sticky-screen {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+h1 {
+  font-size: 5vw;
+  line-height: 0.95;
+  margin: 0;
+  text-align: center;
+  animation: blurIn 5s ease-out forwards;
+}
+
+p {
+    font-weight: 500;
+    animation: blurIn 5s ease-out forwards;
+    margin-top: 0;
+}
+
+h2 {
+    margin: 0;
+    font-size: 2vw;
+    line-height: 1.2;
+    font-weight: 600;
+}
+
+span {
+    display: block;
+    margin-top: 3px;
+    font-size: 1vw;
+    font-weight: 500;
+}
+
+@keyframes blurIn {
+  from {
+    opacity: 0;
+    filter: blur(15px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+
+.info,
+.contact {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(25px);
+  filter: blur(8px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    filter 0.8s ease;
+}
+
+.info.visible,
+.contact.visible {
+  opacity: 1;
+
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.info-left {
+  left: 3vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.info-left.visible {
+  transform: translateY(-50%);
+}
+
+.info-right {
+  right: 3vw;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.info-right.visible {
+  transform: translateY(-50%);
+}
+
+.contact {
+  left: 3vw;
+  bottom: 3vh;
+}
+
+.interests {
+  position: absolute;
+  left: 3vw;
+  top: 12vh;
+  opacity: 0;
+  transform: translateY(70px);
+  filter: blur(15px);
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease,
+    filter 1.2s ease;
+  z-index: 10;
+}
+
+
+.interests.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+
+.interest-list p {
+    margin: 0;
+    font-size: 7.8vw;
+    line-height: 0.9;
+    font-weight: 500;
+    color: #9F144C;
+    mix-blend-mode: color-dodge; 
+}
+
+.interest-list p:hover {
+  font-style: italic;
+  font-family: "Beau Rivage", cursive;
+    font-weight: 300;
+}
+
+.interests span {
+  display: block;
+  margin-top: 25px;
+  font-size: 1.3vw;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.title,
+.info,
+.contact {
+  z-index: 10;
+}

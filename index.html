@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>js.yaning</title>
+  <link rel="icon" type="image/png" href="pink-emoji-heart-valentine-love-iphone-704081694954696ohxurzinhm.png">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <main class="scroll-page">
+
+    <section class="sticky-screen">
+
+      <div class="title">
+        <h1>YANING-HU<br>JAVASCRIPT.</h1>
+        <p>scroll</p>
+      </div>
+
+      <div class="info info-left">
+        <h2>Designer</h2>
+        <span>Parsons CD</span>
+      </div>
+
+      <div class="info info-right">
+        <h2>New York</h2>
+        <span>Based</span>
+      </div>
+
+      <div class="contact">
+        <h2>@yaniing.hu</h2>
+        <h2>3322769561</h2>
+        <h2>huy961newchooledu</h2>
+        <span>Contact</span>
+      </div>
+
+      <div class="interests">
+        <div class="interest-list">
+          <p>Coffee</p>
+          <p>Photography</p>
+          <p>Bedazzle lighters</p>
+          <p>Aperol Spritz</p>
+        </div>
+
+        <span>Personal Interests</span>
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script>
+    const infoElements = document.querySelectorAll(
+      ".info, .contact"
+    );
+
+    const interests = document.querySelector(".interests");
+
+    window.addEventListener("scroll", () => {
+
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      if (scrollY > windowHeight * 0.45) {
+        infoElements.forEach(element => {
+          element.classList.add("visible");
+        });
+      } else {
+        infoElements.forEach(element => {
+          element.classList.remove("visible");
+        });
+      }
+
+      if (scrollY > windowHeight * 1.55) {
+        interests.classList.add("visible");
+      } else {
+        interests.classList.remove("visible");
+      }
+
+    });
+  </script>
+
+</body>
+</html>
