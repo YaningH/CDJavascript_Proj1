@@ -17,6 +17,7 @@
       <div class="title">
         <h1>YANING-HU<br>JAVASCRIPT.</h1>
         <p>scroll</p>
+        <button id="revealButton">click to enter</button>
       </div>
 
       <div class="info info-left">
@@ -38,10 +39,10 @@
 
       <div class="interests">
         <div class="interest-list">
-          <p>Coffee</p>
-          <p>Photography</p>
-          <p>Bedazzle lighters</p>
-          <p>Aperol Spritz</p>
+          <h3>Coffee</h3>
+          <h3>Photography</h3>
+          <h3>Bedazzle lighters</h3>
+          <h3>Aperol Spritz</h3>
         </div>
 
         <span>Personal Interests</span>
@@ -51,37 +52,7 @@
 
   </main>
 
-
-  <script>
-    const infoElements = document.querySelectorAll(
-      ".info, .contact"
-    );
-
-    const interests = document.querySelector(".interests");
-
-    window.addEventListener("scroll", () => {
-
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-
-      if (scrollY > windowHeight * 0.45) {
-        infoElements.forEach(element => {
-          element.classList.add("visible");
-        });
-      } else {
-        infoElements.forEach(element => {
-          element.classList.remove("visible");
-        });
-      }
-
-      if (scrollY > windowHeight * 1.55) {
-        interests.classList.add("visible");
-      } else {
-        interests.classList.remove("visible");
-      }
-
-    });
-  </script>
+<script src="script.js"></script>
 
 </body>
 </html>

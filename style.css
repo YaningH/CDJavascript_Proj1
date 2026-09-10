@@ -34,18 +34,31 @@ body {
   z-index: 10;
 }
 
+.title h1,
+.title p {
+  opacity: 0.3;
+  filter: blur(15px);
+  transition:
+    opacity 1.2s ease,
+    filter 1.2s ease;
+}
+
+.title h1.revealed,
+.title p.revealed {
+  opacity: 1;
+  filter: blur(0);
+}
+
 h1 {
   font-size: 5vw;
   line-height: 0.95;
   margin: 0;
   text-align: center;
-  animation: blurIn 5s ease-out forwards;
 }
 
-p {
-    font-weight: 500;
-    animation: blurIn 5s ease-out forwards;
-    margin-top: 0;
+.title p {
+  font-weight: 500;
+  margin-top: 0;
 }
 
 h2 {
@@ -61,19 +74,6 @@ span {
     font-size: 1vw;
     font-weight: 500;
 }
-
-@keyframes blurIn {
-  from {
-    opacity: 0;
-    filter: blur(15px);
-  }
-
-  to {
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
 
 .info,
 .contact {
@@ -124,34 +124,44 @@ span {
   position: absolute;
   left: 3vw;
   top: 12vh;
+
   opacity: 0;
   transform: translateY(70px);
-  filter: blur(15px);
+  pointer-events: none;
+
   transition:
     opacity 1.2s ease,
-    transform 1.2s ease,
-    filter 1.2s ease;
-  z-index: 10;
-}
+    transform 1.2s ease;
 
+  z-index: 50;
+}
 
 .interests.visible {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
+}
+
+.interest-list h3 {
+  position: relative;
+
+  margin: 0;
+  font-size: 7.8vw;
+  line-height: 0.9;
+  font-weight: 500;
+
+  color: #9F144C;
+  mix-blend-mode: color-dodge;
+
+  filter: blur(15px);
+  transition: filter 1.2s ease;
+}
+
+.interests.visible .interest-list h3 {
   filter: blur(0);
 }
 
-
-.interest-list p {
-    margin: 0;
-    font-size: 7.8vw;
-    line-height: 0.9;
-    font-weight: 500;
-    color: #9F144C;
-    mix-blend-mode: color-dodge; 
-}
-
-.interest-list p:hover {
+.interest-list h3:hover {
   font-style: italic;
   font-family: "Beau Rivage", cursive;
     font-weight: 300;
@@ -164,8 +174,68 @@ span {
   color: rgba(0, 0, 0, 0.45);
 }
 
-.title,
+.title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
 .info,
 .contact {
-  z-index: 10;
+  position: absolute;
+  opacity: 0;
+  transform: translateY(25px);
+  filter: blur(8px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    filter 0.8s ease;
+}
+
+.info.visible,
+.contact.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+
+  pointer-events: auto;
+}
+
+#revealButton {
+  position: relative;
+  z-index: 30;
+  display: block;
+  margin: 20px auto 0;
+  background: none;
+  border: 1px solid black;
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition:
+    background-color 0.7s ease,
+    color 0.7s ease,
+    opacity 0.7s ease;
+}
+
+#revealButton:hover {
+  background-color: black;
+  color: #FF257C;
+}
+
+.scroll-text {
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.scroll-text.visible {
+  opacity: 1;
 }
